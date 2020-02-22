@@ -5,7 +5,8 @@ require("channels")
 import "bootstrap";
 
 import { searchBooks } from "../components/booksapi";
-// searchBooks("harry potter");
+import { searchCategories } from "../components/booksapi";
+// searchCategories("1596983000");
 
 const searchForm = document.querySelector("#search-books")
   searchForm.addEventListener("submit", (event) => {
