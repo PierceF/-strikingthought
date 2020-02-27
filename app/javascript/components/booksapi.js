@@ -71,23 +71,23 @@ async function demo(i, element) {
 //         });
 // };
 
-const fictionalOrNot = (isbn) => {
-  const apiUrl = `https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/isbn/${isbn}?key=${GOODREADS_API_KEY}`
+// const fictionalOrNot = (isbn) => {
+//   const apiUrl = `https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/isbn/${isbn}?key=${GOODREADS_API_KEY}`
 
-  fetch(apiUrl)
-        .then(response => response.text())
-        .then((data) => {
-          let parser = new DOMParser(),
-          xmlDoc = parser.parseFromString(data, 'text/xml');
-          let genres = [];
-          Array.prototype.forEach.call(xmlDoc.getElementsByTagName('shelf'), (categories) => {
-            // console.log(categories);
-            genres.push(categories.attributes.name.value);
-          });
-            console.log(genres.includes('nonfiction') || genres.includes('non-fiction'));
-            console.log(genres);
-        });
-};
+//   fetch(apiUrl)
+//         .then(response => response.text())
+//         .then((data) => {
+//           let parser = new DOMParser(),
+//           xmlDoc = parser.parseFromString(data, 'text/xml');
+//           let genres = [];
+//           Array.prototype.forEach.call(xmlDoc.getElementsByTagName('shelf'), (categories) => {
+//             // console.log(categories);
+//             genres.push(categories.attributes.name.value);
+//           });
+//             console.log(genres.includes('nonfiction') || genres.includes('non-fiction'));
+//             console.log(genres);
+//         });
+// };
 
 // const searchCategories = (isbn) => {
 //   const apiUrl = `https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/isbn/${isbn}?key=${GOODREADS_API_KEY}`
