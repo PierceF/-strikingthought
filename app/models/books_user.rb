@@ -1,4 +1,4 @@
-class BookUser < ApplicationRecord
+class BooksUser < ApplicationRecord
   belongs_to :book
   belongs_to :user
 end

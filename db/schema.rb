@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_194940) do
+ActiveRecord::Schema.define(version: 2020_03_09_203441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_194940) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_blogs_on_user_id"
-  end
-
-  create_table "blogs_categories", force: :cascade do |t|
-    t.bigint "blog_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["blog_id"], name: "index_blogs_categories_on_blog_id"
-    t.index ["category_id"], name: "index_blogs_categories_on_category_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -54,6 +45,15 @@ ActiveRecord::Schema.define(version: 2020_03_04_194940) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "categories_blogs", force: :cascade do |t|
+    t.bigint "blog_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_id"], name: "index_categories_blogs_on_blog_id"
+    t.index ["category_id"], name: "index_categories_blogs_on_category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_194940) do
   end
 
   add_foreign_key "blogs", "users"
-  add_foreign_key "blogs_categories", "blogs"
-  add_foreign_key "blogs_categories", "categories"
   add_foreign_key "books_users", "books"
   add_foreign_key "books_users", "users"
+  add_foreign_key "categories_blogs", "blogs"
+  add_foreign_key "categories_blogs", "categories"
 end

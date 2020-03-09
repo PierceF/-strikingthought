@@ -8,5 +8,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :trackable, :omniauthable
-  has_many :books, through: :books_users
+  has_many :books_user
+  has_many :books, through: :books_user
+  # has_and_belongs_to_many :books
 end
