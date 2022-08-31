@@ -15,7 +15,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
-gem 'omniauth', '~> 1.9.0'
+gem 'omniauth', '~> 1.9.2'
 gem 'pundit'
 
 group :development do
